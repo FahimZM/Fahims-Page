@@ -131,6 +131,7 @@
 									}).then(function(response) {
 										if (response.ok || response.type === 'opaque') {
 											alert('Form submitted successfully!');
+											document.getElementById('contact-form').reset();
 										} else {
 											alert('Form submission failed!');
 										}
