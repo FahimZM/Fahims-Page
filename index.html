@@ -130,8 +130,8 @@
 										mode: 'no-cors'
 									}).then(function(response) {
 										if (response.ok || response.type === 'opaque') {
-											alert('Form submitted successfully!');
 											document.getElementById('contact-form').reset();
+											alert('Form submitted successfully!');
 										} else {
 											alert('Form submission failed!');
 										}
