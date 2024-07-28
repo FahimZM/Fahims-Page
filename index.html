@@ -97,7 +97,7 @@
 						<!-- Contact -->
 							<article id="contact">
 								<h2 class="major">Contact</h2>
-								<form method="POST" action="https://docs.google.com/forms/d/e/1FAIpQLScxNpCnWAJ_q7FLv7KlEpeUbtC8XVqwt1UVHl_hVr0ckwOpKA/formResponse">
+								<form id="contact-form" method="POST" action="https://script.google.com/macros/s/AKfycbyAyw-m7T6fKSLPdyf5AGOf95AftFVSasXZ2inxsNBfhX2flDgbXBEGciehVC4VTv4-/exec">
 									<div class="fields">
 										<div class="field half">
 											<label for="name">Name</label>
@@ -117,6 +117,28 @@
 										<li><input type="reset" value="Reset" /></li>
 									</ul>
 								</form>
+								
+								<script>
+								document.getElementById('contact-form').addEventListener('submit', function(event) {
+									event.preventDefault(); // Prevent the default form submission
+								
+									var formData = new FormData(this);
+								
+									fetch(this.action, {
+										method: 'POST',
+										body: formData,
+										mode: 'no-cors'
+									}).then(function(response) {
+										if (response.ok || response.type === 'opaque') {
+											alert('Form submitted successfully!');
+										} else {
+											alert('Form submission failed!');
+										}
+									}).catch(function(error) {
+										alert('Form submission failed!');
+									});
+								});
+								</script>
 								<ul class="icons">
 									<li><a href="https://www.linkedin.com/in/fahim-zaman-a52a07313/" class="icon brands fa-linkedin" target="_blank"><span class="label">LinkedIn</span></a></li>
 									<li><a href="https://github.com/FahimZM" class="icon brands fa-github" target="_blank"><span class="label">Github</span></a></li>
